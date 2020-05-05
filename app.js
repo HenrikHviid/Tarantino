@@ -2,57 +2,43 @@ let movies =
     [
         {
             "Title": "The Hateful Eight",
-            "YoutubeId": "https://www.youtube.com/watch?v=nIOmotayDMY"
+            "YoutubeId": "nIOmotayDMY"
         },
         {
             "Title": "Death Proof",
-            "YoutubeId": "https://www.youtube.com/watch?v=EAPy76vxF5s"
-        },
-        {
-            "Title": "Death Proof",
-            "YoutubeId": "https://www.youtube.com/watch?v=EAPy76vxF5s"
+            "YoutubeId": "QWIyJZV0wl0"
         },
         {
             "Title": "Inglourious Basterds",
-            "YoutubeId": "https://www.youtube.com/watch?v=EAPy76vxF5s"
+            "YoutubeId": "KnrRy6kSFF0"
         },
         {
             "Title": "Planet Terror",
-            "YoutubeId": "https://www.youtube.com/watch?v=KaWPHLZAZbg"
+            "YoutubeId": "KaWPHLZAZbg"
         },
         {
             "Title": "Kill Bill - Vol. 2",
-            "YoutubeId": "https://www.youtube.com/watch?v=WTt8cCIvGYI"
+            "YoutubeId": "WTt8cCIvGYI"
         },
         {
             "Title": "Jackie Brown",
-            "YoutubeId": "https://www.youtube.com/watch?v=G7HkBDNZV7s"
+            "YoutubeId": "G7HkBDNZV7s"
         },
     ];
-
 
 const app = document.getElementById('root');
 app.style.setProperty('--total', movies.length);
 
-
 const container  = document.createElement('div');
 container.setAttribute('class', 'container');
-
-
 
 const hs = document.createElement('ul');
 hs.setAttribute('class', 'hs full');
 
-
-
 let url = "http://www.omdbapi.com/?apikey=789d41d5&t=";
-
 
 movies.forEach( movie => {
     let thisUrl = url + movie.Title.replace(/ /g,"+");
-    console.log(thisUrl);
-
-
 
     fetch(thisUrl)
         .then(response => {
@@ -63,21 +49,22 @@ movies.forEach( movie => {
             const listitem = document.createElement('li');
 
             const card = document.createElement('div');
-            card.setAttribute('class', 'card')
+            card.setAttribute('class', 'card');
 
             const CardImg = document.createElement('img');
             CardImg.src = data.Poster;
-            CardImg.alt = 'Watch on youtube'
+            CardImg.alt = 'Watch on youtube';
             CardImg.onclick = function() {
-                window.location.href = movie.YoutubeId;
+
             };
 
-            const CardTitle = document.createElement('h3');
+            const CardTitle = document.createElement('h2');
             CardTitle.textContent = movie.Title;
 
             const PlotContainer = document.createElement('div')
             PlotContainer.setAttribute('class', 'PlotContainer');
             const CardPlot = document.createElement('p');
+            CardPlot.setAttribute('class', 'plot');
             CardPlot.textContent = data.Plot;
 
             const CardimdbRating = document.createElement('p');
@@ -86,9 +73,29 @@ movies.forEach( movie => {
             const CardAge = document.createElement('p');
             CardAge.textContent = 'Movie Age: ' + Number(new Date().getFullYear()-data.Year);
 
+            const show = document.createElement('h3');
+            const hide = document.createElement('h3');
+            show.textContent = 'Watch trailer';
+            show.value = movie.YoutubeId;
+            show.onclick = function() {
+                player.style.visibility = 'visible';
+            }
+
+            const player = document.createElement('iframe');
+            player.allowFullscreen = 'true';
+            player.width = '250px';
+            player.setAttribute('class', 'player');
+            player.src = 'http://www.youtube.com/embed/' + movie.YoutubeId;
+
+            const scrollbar = document.createElement('div');
+            scrollbar.setAttribute('class', 'scrollbar');
+
+            app.appendChild(scrollbar);
             app.appendChild(container);
             container.appendChild(hs);
             hs.appendChild(listitem);
+
+            app.appendChild(player);
 
             card.appendChild(CardImg);
             card.appendChild(CardTitle);
@@ -96,10 +103,11 @@ movies.forEach( movie => {
             card.appendChild(PlotContainer);
             card.appendChild(CardimdbRating);
             card.appendChild(CardAge);
+            card.appendChild(show);
+            card.appendChild(hide);
+            card.appendChild(player);
 
             listitem.appendChild(card);
-
-
 
 
         })
@@ -108,4 +116,6 @@ movies.forEach( movie => {
             errorMessage.textContent = `Gah, it's not working!`;
             app.appendChild(errorMessage);
         })
+
 })
+
