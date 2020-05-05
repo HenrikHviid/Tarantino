@@ -87,9 +87,6 @@ movies.forEach( movie => {
             player.setAttribute('class', 'player');
             player.src = 'https://www.youtube.com/embed/' + movie.YoutubeId;
 
-            const scrollbar = document.createElement('div');
-            scrollbar.setAttribute('class', 'scrollbar');
-
             app.appendChild(scrollbar);
             app.appendChild(container);
             container.appendChild(hs);
