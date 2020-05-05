@@ -87,7 +87,6 @@ movies.forEach( movie => {
             player.setAttribute('class', 'player');
             player.src = 'https://www.youtube.com/embed/' + movie.YoutubeId;
 
-            app.appendChild(scrollbar);
             app.appendChild(container);
             container.appendChild(hs);
             hs.appendChild(listitem);
