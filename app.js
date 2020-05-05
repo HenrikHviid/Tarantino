@@ -1,24 +1,32 @@
 let movies =
     [
         {
-            "Title": "Pulp Fiction",
-            "YoutubeId": "https://www.youtube.com/watch?v=s7EdQ4FqbhY"
+            "Title": "The Hateful Eight",
+            "YoutubeId": "https://www.youtube.com/watch?v=nIOmotayDMY"
         },
         {
-            "Title": "From dusk till dawn",
-            "YoutubeId": "https://www.youtube.com/watch?v=6RF0hYk7tc8"
+            "Title": "Death Proof",
+            "YoutubeId": "https://www.youtube.com/watch?v=EAPy76vxF5s"
+        },
+        {
+            "Title": "Death Proof",
+            "YoutubeId": "https://www.youtube.com/watch?v=EAPy76vxF5s"
         },
         {
             "Title": "Inglourious Basterds",
-            "YoutubeId": "https://www.youtube.com/watch?v=KnrRy6kSFF0"
+            "YoutubeId": "https://www.youtube.com/watch?v=EAPy76vxF5s"
         },
         {
-            "Title": "Once Upon a Time... in Hollywood",
-            "YoutubeId": "https://www.youtube.com/watch?v=ELeMaP8EPAA"
+            "Title": "Planet Terror",
+            "YoutubeId": "https://www.youtube.com/watch?v=KaWPHLZAZbg"
         },
         {
-            "Title": "Reservoir dogs",
-            "YoutubeId": "https://www.youtube.com/watch?v=vayksn4Y93A"
+            "Title": "Kill Bill - Vol. 2",
+            "YoutubeId": "https://www.youtube.com/watch?v=WTt8cCIvGYI"
+        },
+        {
+            "Title": "Jackie Brown",
+            "YoutubeId": "https://www.youtube.com/watch?v=G7HkBDNZV7s"
         },
     ];
 
