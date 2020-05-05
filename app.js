@@ -35,7 +35,7 @@ container.setAttribute('class', 'container');
 const hs = document.createElement('ul');
 hs.setAttribute('class', 'hs full');
 
-let url = "http://www.omdbapi.com/?apikey=789d41d5&t=";
+let url = "https://www.omdbapi.com/?apikey=789d41d5&t=";
 
 movies.forEach( movie => {
     let thisUrl = url + movie.Title.replace(/ /g,"+");
@@ -85,7 +85,7 @@ movies.forEach( movie => {
             player.allowFullscreen = 'true';
             player.width = '250px';
             player.setAttribute('class', 'player');
-            player.src = 'http://www.youtube.com/embed/' + movie.YoutubeId;
+            player.src = 'https://www.youtube.com/embed/' + movie.YoutubeId;
 
             const scrollbar = document.createElement('div');
             scrollbar.setAttribute('class', 'scrollbar');
